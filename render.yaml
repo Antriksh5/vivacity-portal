@@ -1,0 +1,30 @@
+# Disposable test deployment. Free Render storage does not persist SQLite data.
+# For retained accounts, use a persistent disk or the existing MySQL configuration.
+services:
+  - type: web
+    name: vivacity-27-api
+    runtime: node
+    rootDir: server
+    plan: free
+    buildCommand: npm ci --include=dev && npm run build
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: NODE_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: NODE_OPTIONS
+        value: --network-family-autoselection-attempt-timeout=2000
+      - key: DB_DIALECT
+        value: sqlite
+      - key: SQLITE_STORAGE
+        value: /tmp/vivacity-ca.sqlite
+      - key: SECRET_TOKEN
+        generateValue: true
+      - key: REGISTRATION_SHEET_URL
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false

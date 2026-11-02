@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+
+.rum-raisin-regular {
+  font-family: "Rum Raisin", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Rumble Brave";
+  src: url("./fonts/Rumble_brave/Rumble Brave.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.rumble-brave {
+  font-family: "Rumble Brave", cursive;
+}
+
+@font-face {
+  font-family: "Lemon Milk";
+  src: url("./fonts/lemon milk/LEMONMILK-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.lemon-milk {
+  font-family: "Lemon Milk", sans-serif;
+}
